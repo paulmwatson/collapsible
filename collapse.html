@@ -1,0 +1,198 @@
+<!doctype>
+<html>
+  <head>
+    <title>Collapsible</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      
+      html, body {
+        background-color: #eee;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        width: 100%;
+      }
+      
+      body {
+        padding: 10px 10px 10px 0;
+      }
+      
+      #content {
+        height: 100%;
+        overflow: hidden;
+        position: relative;
+        width: 100%;
+      }
+      
+      .panel {
+        background-color: #fff;
+        border-radius: 0;
+        border-left: solid 10px #eee;
+        float: left;
+        height: 100%;
+        overflow: hidden;
+        max-width: ;
+        padding: 10px;
+        transition: all ease 0.5s;
+      }
+      
+      .panel.show {
+        opacity: 1!important;
+      }
+      
+      .panel.zero {
+        width: 16%;
+      }
+      
+      .panel.one {
+        width: 40%;
+      }
+      
+      .panel.two,
+      .panel.three {
+        width: 22%;
+      }
+      
+      #panels_menu {
+        display: none;
+      }
+      
+      .show_panel {
+        display: none;
+      }
+      
+      @media (max-width: 1024px) {
+        .panel.zero {
+          width: 25%;  
+        }
+        
+        .panel.one {
+          width: 50%;
+        }
+        
+        .panel.two,
+        .panel.three {
+          width: 25%;
+        }
+        
+        .panel.three {
+          margin-left: -25%;
+          opacity: 0;
+          pointer-events: none;
+        }
+        
+        #panels_menu {
+          display: block;
+        }
+        
+        .show_panel.two,
+        .show_panel.three{
+          display: block;
+        }
+      }
+      
+      @media (max-width: 768px) {
+        .show_panel.one {
+          display: block;
+        }
+        
+        .panel.one,
+        .panel.two,
+        .panel.three {
+          width: 75%;
+        }
+        
+        .panel.two,
+        .panel.three {
+          margin-left: -75%;
+          opacity: 0;
+        }
+      }
+      
+      @media (max-width: 560px) {
+        .show_panel.zero {
+          display: block;
+        }
+        
+        .panel {
+          width: 100%!important;
+        }
+        
+        .panel.one,
+        .panel.two,
+        .panel.three {
+          opacity: -1;
+          margin-left: -100%;
+        }
+      }
+    </style>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script>
+      $(document).on('click', '.show_panel', function() {
+        $('.panel').removeClass('show');
+        $('#panel_' + $(this).attr('data-panel-to-show')).addClass('show');
+      });
+    </script>
+  </head>
+  <body>
+    <aside id="panels_menu">
+      <h1>Menu</h1>
+      <ul>
+        <li class="show_panel zero" data-panel-to-show="storylines">
+          <button>Show Storylines</button>
+        </li>
+        <li class="show_panel one" data-panel-to-show="stories">
+          <button>Show Content</button>
+        </li>
+        <li class="show_panel two" data-panel-to-show="alerts">
+          <button>Show Alerts</button>
+        </li>
+        <li class="show_panel three" data-panel-to-show="twitter_list">
+          <button>Show Twitter List</button>
+        </li>
+      </ul>
+    </aside>
+    <div id="content">
+      <section id="panel_storylines" class="panel zero">
+        <h1>Storylines</h1>
+        <ul>
+          <li>
+            WORLD CUP
+          </li>
+          <li>
+            SOUTH AFRICA
+          </li>
+          <li>
+            SPAIN
+          </li>
+          <li>
+            COLOMBIA
+          </li>
+          <li>
+            SPORTS
+          </li>
+          <li>
+            WIMBLEDON
+          </li>
+        </ul>
+      </section>
+      <section id="panel_stories" class="panel one">
+        Content
+        <img src="image.jpg" width="100%">
+        <h1>GERMANY: King Abdullah II Meets With Chancellor Angela Merkel</h1>
+        <p>King Abdullah II of Jordan met with German Chancellor Angela Merkel on June 24 in Berlin. During a press conference before the meeting the king mentioned the “burden of the refugee traffic” in his country and said that Jordan is looking to the international community for assistance to “continue to be an island of stability in a very volatile region”. He also addressed challenges to stability in Iraq and Syria and expressed hope for an opportunity to relaunch Palestinian-Israeli negotiations for a peace process.</p>
+        <img src="image.jpg" width="100%">
+        <h1>GERMANY: King Abdullah II Meets With Chancellor Angela Merkel</h1>
+        <p>King Abdullah II of Jordan met with German Chancellor Angela Merkel on June 24 in Berlin. During a press conference before the meeting the king mentioned the “burden of the refugee traffic” in his country and said that Jordan is looking to the international community for assistance to “continue to be an island of stability in a very volatile region”. He also addressed challenges to stability in Iraq and Syria and expressed hope for an opportunity to relaunch Palestinian-Israeli negotiations for a peace process.</p>
+      </section>
+      <section id="panel_alerts" class="panel two">
+        Alerts
+      </section>
+      <section id="panel_twitter_list" class="panel three">
+        Twitter List
+      </section>
+    </section>
+  </body>
+</html>
